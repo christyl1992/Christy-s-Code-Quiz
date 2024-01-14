@@ -1,3 +1,5 @@
+
+//Event listener which starts quiz and timer
 const element = document.getElementById("start");
 element.addEventListener("click", timer);
 
@@ -16,7 +18,7 @@ function timer() {
   loadQuestion();
 }
 
-// load questions to the page
+// Loads questions to the page
 function loadQuestion() {
   const currentQuestion = questions[currentQuestionIndex];
   // Update question title
@@ -34,6 +36,7 @@ function loadQuestion() {
     choicesContainer.appendChild(choiceButton);
   });
 }
+
 
 function handleChoiceSelection(selectedChoice, correctAnswer) {
   if (selectedChoice === correctAnswer) {
@@ -61,3 +64,14 @@ function handleChoiceSelection(selectedChoice, correctAnswer) {
 
 // You can call the loadQuestion function to display the first question and choices.
 loadQuestion();
+
+
+function subtractTime() {
+    // Subtract 15 seconds from the timer
+    var sec = parseInt(document.getElementById('time').innerHTML);
+    sec -= 15;
+    if (sec < 0) {
+      sec = 0; // Ensure the timer doesn't go negative
+    }
+    document.getElementById('time').innerHTML = sec;
+  }

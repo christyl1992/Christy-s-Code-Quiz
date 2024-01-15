@@ -18,24 +18,24 @@ function timer() {
   loadQuestion();
 }
 
-// Loads questions to the page
+//Load questions
 function loadQuestion() {
-  const currentQuestion = questions[currentQuestionIndex];
-  // Update question title
-  document.getElementById('question-title').textContent = currentQuestion.question;
-  // Update choices
-  const choicesContainer = document.getElementById('choices');
-  choicesContainer.innerHTML = '';
-  // Create and append choice buttons
-  currentQuestion.answers.forEach((choice, index) => {
-    const choiceButton = document.createElement('button');
-    choiceButton.textContent = choice;
-    choiceButton.addEventListener('click', function () {
-      handleChoiceSelection(choice, currentQuestion.correct);
+    const currentQuestion = questions[currentQuestionIndex];
+    // Update question title
+    document.getElementById('question-title').textContent = currentQuestion.question;
+    // Update choices
+    const choicesContainer = document.getElementById('answers');
+    choicesContainer.innerHTML = '';
+    // Create and append choice buttons
+    currentQuestion.answers.forEach((choice, index) => {
+      const choiceButton = document.createElement('button');
+      choiceButton.textContent = choice;
+      choiceButton.addEventListener('click', function () {
+        handleChoiceSelection(choice, currentQuestion.correctAnswer);
+      });
+      choicesContainer.appendChild(choiceButton);
     });
-    choicesContainer.appendChild(choiceButton);
-  });
-}
+  }
 
 
 function handleChoiceSelection(selectedChoice, correctAnswer) {

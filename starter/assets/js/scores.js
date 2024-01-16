@@ -12,6 +12,36 @@ function resetQuiz() {
 
 
 
+// Function to submit initials and save score to high scores
+function submitInitials() {
+    const initials = document.getElementById('initials').value;
+
+    if (initials.trim() !== "") {
+        // Save the high score and initials to local storage
+        const finalScore = calculateFinalScore();
+        saveHighScore(initials, finalScore);
+
+        // Log the initials and high score (you can remove this line if you don't need it)
+        console.log(`Initials: ${initials}, High Score: ${finalScore}`);
+
+        // Update the displayed high scores
+        displayHighScores();
+
+        // Reset the quiz
+        resetQuiz();
+    } else {
+        alert("Please enter your initials.");
+    }
+}
+
+
+
+// Event listener to submit initials and save high scores when the "Submit" button is clicked
+document.getElementById('submit').addEventListener('click', function () {
+    submitInitials();
+});
+
+
 // Function to display high scores on the page
 function displayHighScores() {
     const highScoresList = document.getElementById('highscores');
@@ -43,32 +73,8 @@ function saveHighScore(initials, score) {
 document.addEventListener('DOMContentLoaded', displayHighScores);
 
 
-// Function to submit initials and save score to high scores
-function submitInitials() {
-    const initials = document.getElementById('initials').value;
 
-    if (initials.trim() !== "") {
-        // Save the high score and initials to local storage
-        const finalScore = calculateFinalScore();
-        saveHighScore(initials, finalScore);
 
-        // Log the initials and high score (you can remove this line if you don't need it)
-        console.log(`Initials: ${initials}, High Score: ${finalScore}`);
-
-        // Update the displayed high scores
-        displayHighScores();
-
-        // Reset the quiz
-        resetQuiz();
-    } else {
-        alert("Please enter your initials.");
-    }
-}
-
-// Event listener to submit initials and save high scores when the "Submit" button is clicked
-document.getElementById('submit').addEventListener('click', function () {
-    submitInitials();
-});
 
 
 

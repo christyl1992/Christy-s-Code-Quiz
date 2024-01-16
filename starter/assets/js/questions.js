@@ -21,7 +21,13 @@ var questions = [
       question: "How do you comment out a line in JavaScript?",
       answers: ["/* comment */", "// comment", "<!-- comment -->"],
       correctAnswer: "// comment"
-    }
+    },
+
+    {
+        question: "What does the acronym 'CSS' stand for?",
+        answers: ["Counter Style Sheets", "Computer Style Sheets", "Cascading Style Sheets"],
+        correctAnswer: "Cascading Style Sheets"
+      }
   ];
   
   let currentQuestionIndex = 0;

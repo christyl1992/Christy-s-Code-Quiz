@@ -1,18 +1,26 @@
-// Function to reset the quiz
+document.getElementById('submit').addEventListener('click', function () {
+    endQuiz() ;
+
+    // Show the end-screen when the Submit button is clicked
+    document.getElementById('end-screen').classList.remove('hide');
+
+
+// Reset the quiz
 function resetQuiz() {
     // Reset any variables or elements needed for the quiz to start again
     time = 0; // Reset the time, for example
     currentQuestionIndex = 0; // Reset the question index
     // ... Add any other reset logic here
+
     // Optional: Redirect to the start screen or another page
     document.getElementById('start').classList.remove('hide');
     document.getElementById('questions').classList.add('hide');
-    document.getElementById('end-screen').classList.add('hide');
-}
+    // Do not hide the end-screen
+});
 
 
 
-// Function to submit initials and save score to high scores
+//Function to submit initials and save score to high scores
 function submitInitials() {
     const initials = document.getElementById('initials').value;
 

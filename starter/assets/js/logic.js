@@ -20,7 +20,7 @@ function endQuiz() {
     document.getElementById('end-screen').classList.remove('hide');
     
     // Calculate score based on time left
-    calculateFinalScore();
+    calculateFinalScore();     
     
     // Display the final score
     document.getElementById('final-score').textContent = "Your final score is: " + score;

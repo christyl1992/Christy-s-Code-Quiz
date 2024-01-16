@@ -1,22 +1,40 @@
+let sec; // Declare outside the functions to make it accessible globally
 
-//Event listener which starts quiz and timer
 const element = document.getElementById("start");
-element.addEventListener("click", timer);
+element.addEventListener("click", function () {
+    sec = 75; // Set the initial time value
+    timer(); // Start the timer
+});
 
 function timer() {
-  var sec = 75;
-  var timer = setInterval(function () {
-    document.getElementById('time').innerHTML = sec;
-    sec--;
-    if (sec < 0) {
-      clearInterval(timer);
-    }
-  }, 1000);
-  document.getElementById('start-screen').classList.add('hide');
-  // Show questions
-  document.getElementById('questions').classList.remove('hide');
-  loadQuestion();
+    var timerInterval = setInterval(function () {
+        document.getElementById('time').innerHTML = sec;
+        sec--;
+
+        if (sec < 0) {
+            clearInterval(timerInterval);
+            console.log("Time's up!");
+            // Add logic to handle the end of the quiz
+        }
+    }, 1000);
+
+    document.getElementById('start-screen').classList.add('hide');
+    document.getElementById('questions').classList.remove('hide');
+    loadQuestion();
 }
+
+function subtractTime() {
+    sec -= 15;
+    sec = Math.max(sec, 0);
+    document.getElementById('time').innerHTML = sec;
+}
+
+
+
+
+
+
+
 
 //Load questions
 function loadQuestion() {
@@ -38,20 +56,19 @@ function loadQuestion() {
   }
 
 
-function handleChoiceSelection(selectedChoice, correctAnswer) {
-  if (selectedChoice === correctAnswer) {
-    // Handle correct answer logic (e.g., update score, show success message)
-    console.log("Correct!");
-  } else {
-    // Handle incorrect answer logic (e.g., deduct time, show error message)
-    console.log("Incorrect!");
-  }
 
-  // Move to the next question or end the quiz when appropriate
-  // ...
 
-  // For this example, let's move to the next question after a short delay
-  setTimeout(() => {
+  function handleChoiceSelection(selectedChoice, correctAnswer) {
+    if (selectedChoice === correctAnswer) {
+      // Handle correct answer logic
+      console.log("Correct!");
+    } else {
+      // Handle incorrect answer logic 
+      console.log("Incorrect!");
+      subtractTime();
+    }
+  
+    // Move to the next question or end the quiz when appropriate
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
       loadQuestion(); // Load the next question
@@ -59,19 +76,4 @@ function handleChoiceSelection(selectedChoice, correctAnswer) {
       console.log("Quiz ended!");
       // Add logic to end the quiz or display the final score
     }
-  }, 1000); // Adjust the delay as needed
-}
-
-// You can call the loadQuestion function to display the first question and choices.
-loadQuestion();
-
-
-function subtractTime() {
-    // Subtract 15 seconds from the timer
-    var sec = parseInt(document.getElementById('time').innerHTML);
-    sec -= 15;
-    if (sec < 0) {
-      sec = 0; // Ensure the timer doesn't go negative
-    }
-    document.getElementById('time').innerHTML = sec;
   }

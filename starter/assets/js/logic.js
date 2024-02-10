@@ -8,6 +8,13 @@ element.addEventListener("click", function () {
     timer(); // Start the timer
 });
 
+ // Function to calculate and return the final score
+ function calculateFinalScore() {
+    score = Math.max(0, time);
+    return score;
+    calculateFinalScore();
+ }
+
 
 function endQuiz() {
     // Stop the timer
@@ -27,14 +34,10 @@ function endQuiz() {
      
     // Get initials from the input field
     const initials = document.getElementById('initials').value;
-
-    // Function to calculate and return the final score
-    function calculateFinalScore() {
-    score = Math.max(0, time);
-    return score;
 }
+
+
     
-    }
 
 function timer() {
     timerInterval = setInterval(function () {

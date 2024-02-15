@@ -33,7 +33,7 @@ At the end of the quiz see your final score and input your initials.
 assets/images/Screenshot 2024-01-16 at 23.06.52.png
 
 Previous scores and initials are saved to local storage and stored on the highscores.html page.
-assets/images/Screenshot 2024-02-15 at 11.05.55.png
+assets/images/Screenshot 2024-02-15 at 11.33.11.png
 
 
 ## License

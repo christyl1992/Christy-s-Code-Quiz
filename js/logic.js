@@ -137,7 +137,7 @@ function resetQuiz() {
     document.getElementById('questions').classList.add('hide');
     // Do not hide the end-screen 
 
-    window.location.href = "/starter/highscores.html"
+    window.location.href = "/highscores.html"
 };
 
 

@@ -19,6 +19,7 @@ SO THAT I can gauge my progress compared to my peers
 ## DEPLOYMENT 
 
 Here is a link to the deployed page, please click inspect to view the console. 
+https://christyl1992.github.io/Coding-Quiz/
 
 
 ## Usage
